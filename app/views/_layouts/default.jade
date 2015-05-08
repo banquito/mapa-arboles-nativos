@@ -1,0 +1,15 @@
+include elements/forms
+include elements/nav
+
+block vars
+  - base_url = './'
+
+doctype html
+html(lang="es")
+  include includes/head
+  body
+    block nav
+      +nav('nav', global.nav)
+    .wrapper
+      include includes/aside
+      block content

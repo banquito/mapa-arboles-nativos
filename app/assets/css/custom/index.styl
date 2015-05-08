@@ -1,0 +1,67 @@
+@import '_github'
+
+.nav
+  position: relative
+  z-index: 100
+
+#mapa
+  position: absolute
+  top: 45px
+  bottom: 0
+  left: 272px
+  right: 0
+  
+.aside
+  position: absolute
+  left: 0
+  bottom: 0
+  top: 45px
+  width: 272px
+  background: #FFF
+  box-shadow: 0 0 30px rgba(0, 0, 0, .7)
+  z-index: 10
+
+footer
+  position: absolute
+  bottom: 0
+  padding: 10px
+  p
+    font-size: 13px
+    margin: 0
+  .legal
+    a
+      font-weight: bold
+      &:hover
+        text-decoration: none
+
+.developed
+  &__body
+    line-height: 18px
+    color: #717171
+    display: block
+    font-size: 11px
+    color: #2c2c2c
+    &:hover
+      color: #ff5b00
+      text-decoration: none
+      .developed__brand
+        background-position: left bottom
+  &__brand
+    background: url("../media/img/logo-banquito-pie.png")
+    display: inline-block
+    width: 61px
+    height: 18px
+    overflow: hidden
+    white-space: nowrap
+    text-indent: 100%
+    position: relative
+    top: 7px
+    margin-left: 5px
+    
+.boton-formulario
+  button()
+  display: block
+  text-align: center
+  margin: 30px
+  line-height: 2em
+  font-size: 16px

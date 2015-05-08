@@ -1,0 +1,16 @@
+nav:
+  -
+    link: "index.html"
+    name: "Mapa de Árboles Nativos"
+  -
+    link: "quienes-somos.html"
+    name: "Quiénes somos"
+  -
+    link: "contacto.html"
+    name: "Contacto"
+
+page: 
+  title: "Mapa de Árboles Nativos"
+  decription: "Mapa interactivo red de multiplicadores urbanos"
+
+google_maps_api_key: "AIzaSyASerFt8cKqFZYXvUmxuumc-iQUuVyog_8"
