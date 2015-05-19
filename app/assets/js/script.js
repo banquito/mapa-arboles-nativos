@@ -62,11 +62,18 @@ function inicializar_mapa() {
   google.maps.event.addListener(map, "bounds_changed", function() {});
 
   $("#filter-nativos").click(function(){
-    layer.setMap(map);
-    layer2.setMap(null);
+    toggleLayer(layer);
   });
   $("#filter-canteros").click(function(){
-    layer.setMap(null);
-    layer2.setMap(map);
+    toggleLayer(layer2);
   });
+
+  function toggleLayer(this_layer)
+  {
+     if( this_layer.getMap() ){
+        this_layer.setMap(null);
+     }else{
+        this_layer.setMap(map);
+     }
+  }
 }
