@@ -50,5 +50,23 @@ function inicializar_mapa() {
 
   layer.setMap(map);
 
+  layer2 = new google.maps.FusionTablesLayer({
+    query: {
+      select: '\'Location\'',
+      from: '10fX5sB7atgfmTcnI6fc9iJrE-cDL25HXAX81gkDP'
+    }
+  });
+
+  layer2.setMap(map);
+
   google.maps.event.addListener(map, "bounds_changed", function() {});
+
+  $("#filter-nativos").click(function(){
+    layer.setMap(map);
+    layer2.setMap(null);
+  });
+  $("#filter-canteros").click(function(){
+    layer.setMap(null);
+    layer2.setMap(map);
+  });
 }
