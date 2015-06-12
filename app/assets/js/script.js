@@ -4,7 +4,7 @@
 
 var map;
 var MAP_MIN_ZOOM = 11;
-var MAP_MAX_ZOOM = 16;
+var MAP_MAX_ZOOM = 32;
 
 $(document).ready(function() {
   inicializar_mapa();
@@ -36,36 +36,62 @@ function inicializar_mapa() {
 
   map = new google.maps.Map(document.getElementById('mapa'), mapOptions);
 
-  layer = new google.maps.FusionTablesLayer({
+  layerSiembras = new google.maps.FusionTablesLayer({
     query: {
       select: '\'Location\'',
-      from: '1hLyg7hs8Mk1nkITYUzxivN_vD_O5eJbdincPUurb'
-    },
-    styles: [{
-      markerOptions: {
-        iconName: "parks"
-      }
-    }]
-  });
-
-  layer.setMap(map);
-
-  layer2 = new google.maps.FusionTablesLayer({
-    query: {
-      select: '\'Location\'',
-      from: '10fX5sB7atgfmTcnI6fc9iJrE-cDL25HXAX81gkDP'
+      from: '19tSQTLYbiozG5DAg9jHRN-BMW000_JPQDxovMQZB'
     }
   });
+  layerSiembras.setMap(map);
 
-  layer2.setMap(map);
+  layerCosechas = new google.maps.FusionTablesLayer({
+    query: {
+      select: '\'Location\'',
+      from: '1g8Jhpvi89MsQgtsGm_D_rpa-WKratC5L_Sang-Zy'
+    }
+  });
+  layerCosechas.setMap(map);
+
+  layerPLantaciones = new google.maps.FusionTablesLayer({
+    query: {
+      select: '\'Location\'',
+      from: '1JrMV-_7NNJ1sLxr1TDQFtCK6iL05s6QapwqLTt8i'
+    }
+  });
+  layerPLantaciones.setMap(map);
+
+  layerBancoSemillas = new google.maps.FusionTablesLayer({
+    query: {
+      select: '\'Location\'',
+      from: '1BOqgNfUXQfzvul2Vcw075wqh_IwZE3G-A9NW1T1H'
+    }
+  });
+  layerBancoSemillas.setMap(map);
+
+  layerQuieroApadrinar = new google.maps.FusionTablesLayer({
+    query: {
+      select: '\'Location\'',
+      from: '1xvHtzYjz82-YSWwTYlm-BZlNIXiw85E4XvSMSKmo'
+    }
+  });
+  layerQuieroApadrinar.setMap(map);
 
   google.maps.event.addListener(map, "bounds_changed", function() {});
 
-  $("#filter-nativos").click(function(){
-    toggleLayer(layer);
+  $("#siembras").click(function(){
+    toggleLayer(layerSiembras);
   });
-  $("#filter-canteros").click(function(){
-    toggleLayer(layer2);
+  $("#cosechas").click(function(){
+    toggleLayer(layerCosechas);
+  });
+  $("#plantaciones").click(function(){
+    toggleLayer(layerPLantaciones);
+  });
+  $("#banco_semillas").click(function(){
+    toggleLayer(layerBancoSemillas);
+  });
+  $("#quiero_apadrinar").click(function(){
+    toggleLayer(layerQuieroApadrinar);
   });
 
   function toggleLayer(this_layer)
