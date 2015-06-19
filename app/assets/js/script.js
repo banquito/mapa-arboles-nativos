@@ -74,32 +74,34 @@ function inicializar_mapa() {
       from: '1xvHtzYjz82-YSWwTYlm-BZlNIXiw85E4XvSMSKmo'
     }
   });
-  layerQuieroApadrinar.setMap(map);
+ // layerQuieroApadrinar.setMap(map);
 
   google.maps.event.addListener(map, "bounds_changed", function() {});
 
   $("#siembras").click(function(){
-    toggleLayer(layerSiembras);
+    toggleLayer(layerSiembras, this);
   });
   $("#cosechas").click(function(){
-    toggleLayer(layerCosechas);
+    toggleLayer(layerCosechas, this);
   });
   $("#plantaciones").click(function(){
-    toggleLayer(layerPLantaciones);
+    toggleLayer(layerPLantaciones, this);
   });
   $("#banco_semillas").click(function(){
-    toggleLayer(layerBancoSemillas);
+    toggleLayer(layerBancoSemillas, this);
   });
   $("#quiero_apadrinar").click(function(){
     toggleLayer(layerQuieroApadrinar);
   });
 
-  function toggleLayer(this_layer)
+  function toggleLayer(this_layer, link)
   {
-     if( this_layer.getMap() ){
-        this_layer.setMap(null);
-     }else{
-        this_layer.setMap(map);
+    if( this_layer.getMap() ){
+      $(link).removeClass("active");      
+      this_layer.setMap(null);
+    }else{
+      $(link).addClass("active");
+      this_layer.setMap(map);
      }
   }
 }
